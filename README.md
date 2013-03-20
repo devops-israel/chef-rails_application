@@ -147,6 +147,10 @@ e.g.
 
 License and Authors
 -------------------
+### License
+
+See [LICENSE](LICENSE) for full details.
+
 ##### Authors:
  - Evgeny Zislis <evgeny@devops.co.il>
  - Elad Dolev <elad@devops.co.il>
