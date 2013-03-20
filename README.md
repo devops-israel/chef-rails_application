@@ -137,6 +137,7 @@ This cookbook is still a work in progress, you are welcome to help by
 contributing fixes, documentation and tests.
 
 e.g.
+
 1. Fork the repository on Github
 2. Create a named feature branch (like `add_component_x`)
 3. Write you change
@@ -146,6 +147,10 @@ e.g.
 
 License and Authors
 -------------------
+### License
+
+See [LICENSE](LICENSE) for full details.
+
 ##### Authors:
  - Evgeny Zislis <evgeny@devops.co.il>
  - Elad Dolev <elad@devops.co.il>
