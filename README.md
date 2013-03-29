@@ -1,5 +1,6 @@
 rails_application Cookbook
 ============================
+
 This cookbooks installs the server-side Rails application.
 Unlike the official OpsCode cookbooks, this cookbook has all of the possible
 tweaks externalized in the form of attributes - it was intended that this
@@ -12,11 +13,14 @@ customizing the process supervisor as well.
 
 Requirements
 ------------
+
 Tested on Ubuntu 12.04 and depends on several OpsCode official cookbooks that
 actually do the majority of the work.
 
 #### packages
+
 ##### This cookbook depends on several OpsCode cookbooks, namely -
+
 - git
 - ruby
 - nginx
@@ -26,6 +30,7 @@ actually do the majority of the work.
 - application_nginx
 
 #####  for the rails_application::database_credentials cookbook, you also need -
+
 - database
 
 Several of the above required minor modifications, all of these have pull
@@ -33,20 +38,26 @@ requests and tickets with OpsCode, but until these get accepted, forks that
 include the modifications are available here -
 
 ##### application cookbook
+
 - Ticket: http://tickets.opscode.com/browse/COOK-2597
 - Pull Request: https://github.com/opscode-cookbooks/application/pull/25
 - Modified Cookbook: https://github.com/devops-israel/opscode-cookbooks-application.git
 
+
 ##### application_nginx cookbook
+
 - Ticket: http://tickets.opscode.com/browse/COOK-2579
 - Pull Request: https://github.com/opscode-cookbooks/application_nginx/pull/5
 - Modified Cookbook: https://github.com/devops-israel/opscode-cookbooks-application_nginx.git
 
 
 ##### application_ruby cookbook (no pull requests at this time)
+
 - Modified Cookbook: https://github.com/devops-israel/opscode-cookbooks-application_ruby.git
 
+
 ##### OpsCode cookbooks are available at -
+
 - https://github.com/opscode-cookbooks/git.git
 - https://github.com/opscode-cookbooks/ruby.git
 - https://github.com/opscode-cookbooks/nginx.git
@@ -56,9 +67,12 @@ include the modifications are available here -
 - https://github.com/opscode-cookbooks/application_nginx.git
 - https://github.com/opscode-cookbooks/database.git
 
+
 Attributes
 ----------
+
 #### rails_application::default
+
 <table>
   <tr>
     <th>Key</th>
@@ -117,9 +131,12 @@ Attributes
   </tr>
 </table>
 
+
 Usage
 -----
+
 #### rails_application::default
+
 Just include `rails_application` in your node's `run_list`:
 
 ```json
@@ -133,6 +150,7 @@ Just include `rails_application` in your node's `run_list`:
 
 Contributing
 ------------
+
 This cookbook is still a work in progress, you are welcome to help by
 contributing fixes, documentation and tests.
 
@@ -152,5 +170,6 @@ License and Authors
 See [LICENSE](LICENSE) for full details.
 
 ##### Authors:
+
  - Evgeny Zislis <evgeny@devops.co.il>
  - Elad Dolev <elad@devops.co.il>

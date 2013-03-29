@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of rails_application.
 
+## 0.1.1:
+
+* Fix markdown in README file to display properly
+
+
 ## 0.1.0:
 
 * Initial release of rails_application
