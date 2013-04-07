@@ -2,6 +2,12 @@
 
 This file is used to list changes made in each version of rails_application.
 
+## 0.1.2:
+
+* Upstart supports status+restart for service[unicorn]
+* Start rails projects with unicorn_rails where config.ru is not there
+
+
 ## 0.1.1:
 
 * Fix markdown in README file to display properly
