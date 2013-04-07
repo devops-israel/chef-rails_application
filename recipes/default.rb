@@ -115,6 +115,7 @@ application node[:rails][:app][:name] do
 
     service "unicorn_#{node[:rails][:app][:name]}" do
       provider Chef::Provider::Service::Upstart
+      supports status: true, restart: true
       action :nothing
     end
   end
