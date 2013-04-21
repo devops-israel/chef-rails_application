@@ -1,5 +1,8 @@
 upstream <%= @resource.application.name %> {
 <% if @resource.application_port.match("sock$") -%>
+	# fail_timeout=0 means we always retry an upstream even if it failed
+	# to return a good HTTP response (in case the Unicorn master nukes a
+	# single worker for timing out).
 	server unix:<%= @resource.application_port %> fail_timeout=0;
 <% else -%>
 	server 127.0.0.1:<%= @resource.application_port %>;
@@ -40,6 +43,18 @@ server {
 		proxy_set_header   Host             $host;
 		proxy_set_header   X-Real-IP        $remote_addr;
 		proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+
+		client_max_body_size       <%= node[:rails][:nginx][:client_max_body_size] %>;
+		client_body_buffer_size    <%= node[:rails][:nginx][:client_body_buffer_size] %>;
+
+		proxy_connect_timeout      <%= node[:rails][:nginx][:proxy_connect_timeout] %>;
+		proxy_send_timeout         <%= node[:rails][:nginx][:proxy_send_timeout] %>;
+		proxy_read_timeout         <%= node[:rails][:nginx][:proxy_read_timeout] %>;
+
+		proxy_buffer_size          <%= node[:rails][:nginx][:proxy_buffer_size] %>;
+		proxy_buffers              <%= node[:rails][:nginx][:proxy_buffers] %>;
+		proxy_busy_buffers_size    <%= node[:rails][:nginx][:proxy_busy_buffers_size] %>;
+		proxy_temp_file_write_size <%= node[:rails][:nginx][:proxy_temp_file_write_size] %>;
 	}
 
 	# if 502 Bad Gateway or 504 Gateway Timeout show the 500.html page
