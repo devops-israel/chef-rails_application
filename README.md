@@ -37,13 +37,6 @@ Several of the above required minor modifications, all of these have pull
 requests and tickets with OpsCode, but until these get accepted, forks that
 include the modifications are available here -
 
-##### application cookbook
-
-- Ticket: http://tickets.opscode.com/browse/COOK-2597
-- Pull Request: https://github.com/opscode-cookbooks/application/pull/25
-- Modified Cookbook: https://github.com/devops-israel/opscode-cookbooks-application.git
-
-
 ##### application_nginx cookbook
 
 - Ticket: http://tickets.opscode.com/browse/COOK-2579

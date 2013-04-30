@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of rails_application.
 
+## 0.1.3:
+
+* Update dependency on `application` cookbook version to 2.0.2
+
+
 ## 0.1.2:
 
 * Upstart supports status+restart for service[unicorn]
