@@ -109,7 +109,9 @@ application node[:rails][:app][:name] do
         nginx_group:      node[:nginx][:group],
         socket:           node[:rails][:unicorn][:port],
         bundler:          node[:rails][:unicorn][:bundler],
-        bundle_command:   node[:rails][:unicorn][:bundle_command]
+        bundle_command:   node[:rails][:unicorn][:bundle_command],
+        unicorn_bin:      node[:rails][:unicorn][:unicorn_bin],
+        unicorn_config:   node[:rails][:unicorn][:unicorn_config]
       )
     end
 

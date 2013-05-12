@@ -4,7 +4,7 @@ maintainer_email 'evgeny@devops.co.il'
 license          'All rights reserved'
 description      'Installs/Configures rails_application'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.1.3'
+version          '0.1.4'
 
 depends "git"
 depends "ruby"

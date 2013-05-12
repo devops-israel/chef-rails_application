@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of rails_application.
 
+## 0.1.4:
+
+* Allow override for unicorn command and configuration
+
+
 ## 0.1.3:
 
 * Update dependency on `application` cookbook version to 2.0.2

@@ -63,3 +63,5 @@ default[:rails][:unicorn][:before_fork] = 'sleep 1'
 default[:rails][:unicorn][:port] = node[:rails][:nginx][:application_port].to_s # must be a string
 default[:rails][:unicorn][:bundler] = node[:rails][:deploy][:bundler]
 default[:rails][:unicorn][:bundle_command] = node[:rails][:deploy][:bundle_command]
+default[:rails][:unicorn][:unicorn_bin] = "unicorn_rails"
+default[:rails][:unicorn][:unicorn_config] = "/etc/unicorn/#{node[:rails][:app][:name]}.rb"
