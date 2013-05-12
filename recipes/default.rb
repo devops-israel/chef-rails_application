@@ -87,7 +87,7 @@ application node[:rails][:app][:name] do
     end
   end
 
-  before_restart do
+  before_deploy do
     execute "upstart-reload-configuration" do
       command "/sbin/initctl reload-configuration"
       action [:nothing]
