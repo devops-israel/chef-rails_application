@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of rails_application.
 
+## 0.1.7:
+
+* Unicorn socket to be owned by unicorn process user
+
+
 ## 0.1.6:
 
 * Use rails owner and group to own the unicorn process

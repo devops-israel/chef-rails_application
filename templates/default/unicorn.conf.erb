@@ -9,7 +9,7 @@ env HOME="/tmp"
 
 pre-start script
   mkdir -p "<%= File.dirname(@socket) %>"
-  chown -R <%= @nginx_user %>:<%= @nginx_group %> "<%= File.dirname(@socket) %>"
+  chown -R <%= @rails_user %>:<%= @rails_group %> "<%= File.dirname(@socket) %>"
 end script
 
 respawn
