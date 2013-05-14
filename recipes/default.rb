@@ -105,6 +105,8 @@ application node[:rails][:app][:name] do
         app_name:         node[:rails][:app][:name],
         app_path:         File.join(node[:rails][:app][:path], "current"),
         rails_env:        node[:rails][:app][:environment],
+        rails_user:       node[:rails][:owner],
+        rails_group:      node[:rails][:group],
         nginx_user:       node[:nginx][:user],
         nginx_group:      node[:nginx][:group],
         socket:           node[:rails][:unicorn][:port],

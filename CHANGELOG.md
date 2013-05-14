@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of rails_application.
 
+## 0.1.6:
+
+* Use rails owner and group to own the unicorn process
+
+
 ## 0.1.5:
 
 * Allow to change content of unicorn init and configuration files.

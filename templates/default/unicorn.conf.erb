@@ -14,4 +14,4 @@ end script
 
 respawn
 
-exec start-stop-daemon --start --chdir "<%= @app_path %>" --exec <%= @bundler ? "#{@bundle_command} exec " : '' %><%= @unicorn_bin %> -- -E <%= @rails_env %> -c "<%= @unicorn_config %>"
+exec start-stop-daemon --start --chdir "<%= @app_path %>" --chuid <%= @rails_user %>:<%= @rails_group %> --exec <%= @bundler ? "#{@bundle_command} exec " : '' %><%= @unicorn_bin %> -- -E <%= @rails_env %> -c "<%= @unicorn_config %>"
