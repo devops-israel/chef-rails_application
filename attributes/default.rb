@@ -56,6 +56,17 @@ default[:rails][:nginx][:ssl] = false
 default[:rails][:nginx][:ssl_certificate] = "#{node['fqdn']}.crt"
 default[:rails][:nginx][:ssl_certificate_key] = "#{node['fqdn']}.key"
 
+default[:rails][:nginx][:client_max_body_size]       = "10m"
+default[:rails][:nginx][:client_body_buffer_size]    = "128k"
+default[:rails][:nginx][:proxy_connect_timeout]      = "90"
+default[:rails][:nginx][:proxy_send_timeout]         = "90"
+default[:rails][:nginx][:proxy_read_timeout]         = "90"
+default[:rails][:nginx][:proxy_buffer_size]          = "4k"
+default[:rails][:nginx][:proxy_buffers]              = "4 32k"
+default[:rails][:nginx][:proxy_busy_buffers_size]    = "64k"
+default[:rails][:nginx][:proxy_temp_file_write_size] = "64k"
+
+
 default[:rails][:unicorn][:worker_processes] = [node['cpu']['total'].to_i * 4, 8].min
 default[:rails][:unicorn][:worker_timeout] = 60
 default[:rails][:unicorn][:preload_app] = false
