@@ -96,7 +96,7 @@ application node[:rails][:app][:name] do
     # use upstart for unicorn
     template "/etc/init/unicorn_#{node[:rails][:app][:name]}.conf" do
       mode 0644
-      cookbook cookbook_name
+      cookbook cookbook_name.to_s
       source "unicorn.conf.erb"
       owner "root"
       group "root"
