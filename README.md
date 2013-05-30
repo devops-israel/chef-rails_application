@@ -166,3 +166,8 @@ See [LICENSE](LICENSE) for full details.
 
  - Evgeny Zislis <evgeny@devops.co.il>
  - Elad Dolev <elad@devops.co.il>
+
+##### Contributors:
+
+ - Daniel github.com/emirikol
+

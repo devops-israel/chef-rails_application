@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of rails_application.
 
+## 0.1.8:
+
+* Fix for cookbook_name not being a string in chef-solo by emirikol@github
+
+
 ## 0.1.7:
 
 * Unicorn socket to be owned by unicorn process user
