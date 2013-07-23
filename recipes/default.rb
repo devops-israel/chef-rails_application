@@ -133,7 +133,10 @@ application node[:rails][:app][:name] do
     bundler          node[:rails][:unicorn][:bundler]
     bundle_command   node[:rails][:unicorn][:bundle_command]
     restart_command  do  # when a string is used, it will run it as owner/group not as root!
-      execute "/sbin/start unicorn_#{node[:rails][:app][:name]}"
+      service "unicorn_#{node[:rails][:app][:name]}" do
+        provider Chef::Provider::Service::Upstart
+        action [ :restart ]
+      end
     end
     forked_user      node[:rails][:owner]
     forked_group     node[:rails][:group]
