@@ -1,9 +1,12 @@
 upstream <%= @resource.application.name %> {
-<% if @resource.application_port.match("sock$") -%>
-	server unix:<%= @resource.application_port %> fail_timeout=0;
-<% else -%>
-	server 127.0.0.1:<%= @resource.application_port %>;
-<% end -%>
+  <% unless @application_socket.empty? -%>
+    <% [ @application_socket ].flatten.each do |socket_name| -%>
+  server unix:<%= socket_name %>;
+    <% end -%>
+  <% end -%>
+  <% @hosts.each do |node| %>
+  server <%= node.attribute?('cloud') ? node['cloud']['local_ipv4'] : node['ipaddress'] %>:<%= @resource.application_port %>;
+  <% end %>
 }
 
 <% if @resource.ssl -%>
@@ -14,7 +17,6 @@ ssl_certificate_key <%= @resource.ssl_certificate_key %>;
 server {
 	listen <%= @resource.port %>;
 	<% if @resource.ssl %>
-	ssl on;
 	listen 443 ssl;
 	<% end -%>
 	server_name <%= @resource.server_name.is_a?(Array) ? @resource.server_name.join(' ') : @resource.server_name %>;

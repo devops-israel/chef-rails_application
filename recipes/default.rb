@@ -148,6 +148,7 @@ application node[:rails][:app][:name] do
     server_name         node[:rails][:nginx][:server_name]
     port                node[:rails][:nginx][:port]
     application_port    node[:rails][:nginx][:application_port]
+    application_socket  node[:rails][:nginx][:application_socket]
     static_files        node[:rails][:nginx][:static_files]   # eg. { "/img" => "images" }
     ssl                 node[:rails][:nginx][:ssl]
     ssl_certificate     node[:rails][:nginx][:ssl_certificate]

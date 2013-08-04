@@ -37,12 +37,6 @@ Several of the above required minor modifications, all of these have pull
 requests and tickets with OpsCode, but until these get accepted, forks that
 include the modifications are available here -
 
-##### application_nginx cookbook
-
-- Ticket: http://tickets.opscode.com/browse/COOK-2579
-- Pull Request: https://github.com/opscode-cookbooks/application_nginx/pull/5
-- Modified Cookbook: https://github.com/devops-israel/opscode-cookbooks-application_nginx.git
-
 
 ##### application_ruby cookbook (no pull requests at this time)
 
