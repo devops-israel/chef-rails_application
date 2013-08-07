@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of rails_application.
 
+## 0.2.0:
+
+* Fix nginx load balancer configuration to handle static assets correctly.
+
 ## 0.1.10:
 
 * Use `application_socket` from application_nginx cookbook

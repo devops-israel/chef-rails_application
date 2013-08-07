@@ -1,7 +1,7 @@
-upstream <%= @resource.application.name %> {
+upstream <%= @resource.application.name %>-upstream {
   <% unless @application_socket.empty? -%>
     <% [ @application_socket ].flatten.each do |socket_name| -%>
-  server unix:<%= socket_name %>;
+  server unix:<%= socket_name %> fail_timeout=0;
     <% end -%>
   <% end -%>
   <% @hosts.each do |node| %>
@@ -23,6 +23,7 @@ server {
 
 	access_log <%= node[:nginx][:log_dir] %>/<%= @resource.server_name.is_a?(Array) ? @resource.server_name.first : @resource.server_name %>.log;
 	root <%= @resource.path %>/current/public;
+  index index.html;
 
 	<% @resource.static_files.each do |url, path| -%>
 	location <%= url %> {
@@ -30,18 +31,22 @@ server {
 	}
 	<% end -%>
 
-	# serve static content directly
+  # set expiration for static assets
 	location ~* \.(ico|jpg|gif|png|css|js|swf)$ {
-		try_files $uri =404;
+		try_files $uri @<%= @resource.application.name %>-backend;
 		expires max;
 	}
-
 	location / {
-		proxy_pass http://<%= @resource.application.name %>;
+		try_files $uri @<%= @resource.application.name %>-backend;
+	}
+
+  location @<%= @resource.application.name %>-backend {
 		proxy_redirect     off;
 		proxy_set_header   Host             $host;
 		proxy_set_header   X-Real-IP        $remote_addr;
 		proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+
+		proxy_pass http://<%= @resource.application.name %>-upstream;
 	}
 
 	# if 502 Bad Gateway or 504 Gateway Timeout show the 500.html page
