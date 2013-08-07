@@ -1,12 +1,12 @@
 upstream <%= @resource.application.name %>-upstream {
-  <% unless @application_socket.empty? -%>
-    <% [ @application_socket ].flatten.each do |socket_name| -%>
-  server unix:<%= socket_name %> fail_timeout=0;
-    <% end -%>
-  <% end -%>
-  <% @hosts.each do |node| %>
-  server <%= node.attribute?('cloud') ? node['cloud']['local_ipv4'] : node['ipaddress'] %>:<%= @resource.application_port %>;
-  <% end %>
+	<% unless @application_socket.empty? -%>
+		<% [ @application_socket ].flatten.each do |socket_name| -%>
+	server unix:<%= socket_name %> fail_timeout=0;
+		<% end -%>
+	<% end -%>
+	<% @hosts.each do |node| %>
+	server <%= node.attribute?('cloud') ? node['cloud']['local_ipv4'] : node['ipaddress'] %>:<%= @resource.application_port %>;
+	<% end %>
 }
 
 <% if @resource.ssl -%>
@@ -23,7 +23,7 @@ server {
 
 	access_log <%= node[:nginx][:log_dir] %>/<%= @resource.server_name.is_a?(Array) ? @resource.server_name.first : @resource.server_name %>.log;
 	root <%= @resource.path %>/current/public;
-  index index.html;
+	index index.html;
 
 	<% @resource.static_files.each do |url, path| -%>
 	location <%= url %> {
@@ -31,7 +31,7 @@ server {
 	}
 	<% end -%>
 
-  # set expiration for static assets
+	# set expiration for static assets
 	location ~* \.(ico|jpg|gif|png|css|js|swf)$ {
 		try_files $uri @<%= @resource.application.name %>-backend;
 		expires max;
@@ -40,7 +40,7 @@ server {
 		try_files $uri @<%= @resource.application.name %>-backend;
 	}
 
-  location @<%= @resource.application.name %>-backend {
+	location @<%= @resource.application.name %>-backend {
 		proxy_redirect     off;
 		proxy_set_header   Host             $host;
 		proxy_set_header   X-Real-IP        $remote_addr;
