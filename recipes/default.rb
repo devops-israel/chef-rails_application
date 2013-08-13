@@ -50,6 +50,7 @@ application node[:rails][:app][:name] do
   revision          node[:rails][:deploy][:revision]
   enable_submodules node[:rails][:deploy][:enable_submodules]
   shallow_clone     node[:rails][:deploy][:shallow_clone]
+  rollback_on_error node[:rails][:deploy][:rollback_on_error]
 
   environment_name node[:rails][:app][:environment]
 

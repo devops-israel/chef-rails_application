@@ -19,6 +19,7 @@ default[:rails][:deploy][:repository] = nil
 default[:rails][:deploy][:revision] = "master"
 default[:rails][:deploy][:enable_submodules] = true
 default[:rails][:deploy][:action] = :deploy # can be :deploy or :force_deploy
+default[:rails][:deploy][:rollback_on_error] = true
 
 default[:rails][:deploy][:precompile_assets] = nil # true or false
 default[:rails][:deploy][:database_master_role] = nil # used when rendering the `database.yml` file for the host

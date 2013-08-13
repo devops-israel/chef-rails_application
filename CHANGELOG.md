@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of rails_application.
 
+## 0.2.1:
+
+* Enable `rollback_on_error` attribute modification
+
 ## 0.2.0:
 
 * Fix nginx load balancer configuration to handle static assets correctly.
