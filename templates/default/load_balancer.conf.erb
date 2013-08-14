@@ -45,6 +45,8 @@ server {
 		proxy_set_header   Host             $host;
 		proxy_set_header   X-Real-IP        $remote_addr;
 		proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+		# https://newrelic.com/docs/features/request-queuing-and-tracking-front-end-time
+		proxy_set_header   X-Request-Start  "t=${msec}000"; # for NewRelic
 
 		proxy_pass http://<%= @resource.application.name %>-upstream;
 	}
