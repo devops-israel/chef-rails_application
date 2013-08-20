@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of rails_application.
 
+## 0.2.3:
+
+* Set explicit requirement for nginx cookbook version. Old-er nginx had no $msec.
+
 ## 0.2.2:
 
 * Add the X-Request-Start parameter for NewRelic frontend request queue time.
